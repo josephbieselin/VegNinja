@@ -1,0 +1,1 @@
+global.Lives = 3;
