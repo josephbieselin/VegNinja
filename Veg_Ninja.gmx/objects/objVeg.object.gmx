@@ -133,10 +133,14 @@ if (!instance_exists(objGameOver))
     file_text_close(file);
     
     // send valid/invalid objects sliced to db
-    DB_HOST = "138.197.8.18";
-    DB_USER = "veg_ninja_user";
-    DB_PASSWORD = "ThisIsAGreatPassword";
-    DB_DB = "veg_ninja_db";
+    url = "http://104.131.21.237/";
+    url_route = "log"; 
+    dev_id = device_get_id();
+    DB_PASSWORD = "9aa97b27f8f9ceb45dea4a9fda84c2a0bd8759af97e82783";
+    var str = "id=" + dev_id + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD
+    show_message(url + url_route +  "?" + str);    
+    post = http_post_string(url + url_route + "?", str);
+
 }
 
 instance_destroy();

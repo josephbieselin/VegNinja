@@ -20,7 +20,7 @@ switch (os_type)
 
 // BM: Let the developer know we are running on an unsupported target.
 show_debug_message("WARNING: device_get_id unsupported on current target: " + os_name);
-show_debug_message("WARNING: returning 'unknown' as device id.");
+show_debug_message("WARNING: returning '0' as device id.");
 
 // BM: Probably better to return something rather than a blank string.
-return "unknown";
+return "0";
