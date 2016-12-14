@@ -81,6 +81,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>
+    <room>rooms\rmGame_new</room>
     <room>rooms\rmGame</room>
   </rooms>
   <help>
