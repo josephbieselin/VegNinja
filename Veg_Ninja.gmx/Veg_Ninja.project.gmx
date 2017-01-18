@@ -63,7 +63,6 @@
     <font>fonts\fontComic</font>
   </fonts>
   <objects name="objects">
-    <object>objects\objWindows8</object>
     <objects name="Menus and Interface">
       <object>objects\objMenu</object>
       <object>objects\objMenuLogo</object>
