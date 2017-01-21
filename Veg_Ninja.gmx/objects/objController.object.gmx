@@ -78,8 +78,8 @@ instance_create(0, 0, objMouseTracker);
 
 if (!instance_exists(objGameOver))
 {
-var spawnCount, xpos, ypos, veg;
-spawnCount = irandom_range(1, 3);       // We want to spawn 1-3 veg
+var spawnCount, spawnMin, spawnMax, xpos, ypos, veg;
+spawnCount = irandom_range(global.spawnMin, global.spawnMax);       // We want to spawn 1-3 veg
 repeat (spawnCount)
     {
     xpos = random_range(100, room_width-100);   // A random x position
@@ -91,6 +91,8 @@ repeat (spawnCount)
                 sprOnion,
                 sprPepper,
                 sprSpringOnion,
+                sprPotato,
+                sprCorn,
                 sprTNT);
     if (veg.sprite_index == sprTNT)     // If the random sprite was the TNT, then animate it
         {
