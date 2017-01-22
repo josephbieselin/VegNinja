@@ -32,8 +32,6 @@
 //
 //*****************************************************************************
 
-// Initialize Globals
-InitGlobals();
 
 // Set background
 background_index[0]   = bckFruitNinja;

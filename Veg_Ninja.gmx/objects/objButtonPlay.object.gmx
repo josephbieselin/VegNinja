@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !global.inSnapView room_goto(rmGame);
+            <string>if !global.inSnapView room_goto(rmPregame);
 
+InitGlobals();
 </string>
           </argument>
         </arguments>

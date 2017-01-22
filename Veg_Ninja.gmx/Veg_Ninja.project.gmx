@@ -29,6 +29,7 @@
   <sprites name="sprites">
     <sprites name="Veg Ninja Game">
       <sprite>sprites\sprButtonPlay</sprite>
+      <sprite>sprites\sprButtonOk</sprite>
       <sprite>sprites\sprRetry</sprite>
       <sprite>sprites\sprMainMenu</sprite>
       <sprite>sprites\sprVegNinjaLogo</sprite>
@@ -41,6 +42,10 @@
       <sprite>sprites\sprTNT</sprite>
       <sprite>sprites\sprPotato</sprite>
       <sprite>sprites\sprCorn</sprite>
+    </sprites>
+    <sprites name="Symbols">
+      <sprite>sprites\sprCheck</sprite>
+      <sprite>sprites\sprX</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -77,10 +82,20 @@
       <object>objects\objVegSplit</object>
       <object>objects\objMouseTracker</object>
     </objects>
+    <objects name="Symbols">
+      <object>objects\objCheck</object>
+      <object>objects\objX</object>
+    </objects>
+    <objects name="Pregame">
+      <object>objects\objPregameGoodVeg</object>
+      <object>objects\objPregameBadVeg</object>
+      <object>objects\objGoodBadVeg</object>
+      <object>objects\objButtonOk</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>
-    <room>rooms\rmGame_new</room>
+    <room>rooms\rmPregame</room>
     <room>rooms\rmGame</room>
   </rooms>
   <help>
