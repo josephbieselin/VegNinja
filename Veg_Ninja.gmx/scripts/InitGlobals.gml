@@ -1,6 +1,7 @@
 // randomize the seed
 randomize();
 
+// this variable will be used at the start of new games to set the "lives" global
 global.Lives = 3;
 
 // total number of sprites for vegetables

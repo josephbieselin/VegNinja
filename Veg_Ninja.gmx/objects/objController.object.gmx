@@ -37,12 +37,12 @@
 background_index[0]   = bckFruitNinja;
 background_visible[0] = true;
 
-// New game, so we reset the score
+// New game, so we reset the score &amp; lives
 score = 0;
+lives = global.Lives;
 
 // Start the spawn timer and number of lives
 alarm[0] = room_speed * 2;     // 2 seconds
-lives    = global.Lives;
 
 instance_create(0, 0, objMouseTracker);
 
@@ -127,6 +127,52 @@ if (global.pause)
 {
 alarm[0] += 1;
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (!instance_exists(objGameOver))
+    {
+    instance_create(room_width/2, room_height/2, objGameOver);
+    }
+
+// log valid/invalid objects sliced
+var file, str;
+file = file_text_open_append("Log.txt");
+file_text_write_real(file, score);
+file_text_write_string(file, "|");
+file_text_write_real(file, global.Lives);
+file_text_writeln(file);
+file_text_close(file);
+
+// send valid/invalid objects sliced to db
+url = "http://104.131.21.237/";
+url_route = "log"; 
+dev_id = device_get_id();
+DB_PASSWORD = "9aa97b27f8f9ceb45dea4a9fda84c2a0bd8759af97e82783";
+var str = "id=" + dev_id + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD
+show_message(url + url_route +  "?" + str);    
+post = http_post_string(url + url_route + "?", str);
+
 
 </string>
           </argument>

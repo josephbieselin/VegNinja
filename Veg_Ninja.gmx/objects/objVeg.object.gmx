@@ -116,31 +116,9 @@ if (sprite_index != sprTNT)
             <kind>1</kind>
             <string>// This alarm is only triggered if you hit a TNT carrot
 lives -= 1;
+
 if (lives &lt;= 0)
 {
-if (!instance_exists(objGameOver))
-    {
-    instance_create(room_width/2, room_height/2, objGameOver);
-    }
-    
-    // log valid/invalid objects sliced
-    var file, str;
-    file = file_text_open_append("Log.txt");
-    file_text_write_real(file, score);
-    file_text_write_string(file, "|");
-    file_text_write_real(file, global.Lives);
-    file_text_writeln(file);
-    file_text_close(file);
-    
-    // send valid/invalid objects sliced to db
-    url = "http://104.131.21.237/";
-    url_route = "log"; 
-    dev_id = device_get_id();
-    DB_PASSWORD = "9aa97b27f8f9ceb45dea4a9fda84c2a0bd8759af97e82783";
-    var str = "id=" + dev_id + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD
-    show_message(url + url_route +  "?" + str);    
-    post = http_post_string(url + url_route + "?", str);
-
 }
 
 instance_destroy();
@@ -185,10 +163,15 @@ hspeed = -hspeed/2;     // Reverse and half the horizontal speed, because vegeta
 image_angle += hspeed/2;
 
 
-// Destroy when out of view
+// Reduce lives when veg goes out of view (if not sprTNT) &amp; Destroy its instance
 if (y &gt; room_height+200)        // You'll notice this is 100 pixels lower than where the veg spawned
 {
 instance_destroy();
+
+if (sprite_index != sprTNT)
+    {
+    lives -= 1;
+    }
 }
 
 </string>
