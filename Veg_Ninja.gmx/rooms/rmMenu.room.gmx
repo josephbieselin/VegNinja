@@ -53,6 +53,9 @@
   <instances>
     <instance objName="objButtonPlay" x="512" y="640" name="inst_ECF628E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMenu" x="96" y="64" name="inst_6C24883F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objButtonEasy" x="288" y="480" name="inst_7B125AEC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objButtonMedium" x="576" y="512" name="inst_46690BF9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objButtonHard" x="800" y="512" name="inst_30F2FE47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
