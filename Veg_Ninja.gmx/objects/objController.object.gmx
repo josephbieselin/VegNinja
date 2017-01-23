@@ -90,8 +90,9 @@ repeat (spawnCount)
                 sprPepper,
                 sprSpringOnion,
                 sprPotato,
-                sprCorn,
-                sprTNT);
+                sprCorn
+                //sprTNT
+                );
     if (veg.sprite_index == sprTNT)     // If the random sprite was the TNT, then animate it
         {
         veg.image_speed = 0.2;
