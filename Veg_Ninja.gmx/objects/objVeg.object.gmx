@@ -159,16 +159,17 @@ hspeed = -hspeed/2;     // Reverse and half the horizontal speed, because vegeta
 image_angle += hspeed/2;
 
 
-// Reduce lives when veg goes out of view (if not sprTNT) &amp; Destroy its instance
+// Reduce lives when veg goes out of view (if not sprTNT or in badVeg list) &amp; Destroy its instance
 if (y &gt; room_height+200)        // You'll notice this is 100 pixels lower than where the veg spawned
-{
-instance_destroy();
-
-if (sprite_index != sprTNT)
     {
-    lives -= 1;
+    instance_destroy();
+    
+    // not sprTNT &amp; not a badVeg
+    if (sprite_index != sprTNT and ds_list_find_index(global.badVeg, sprite_index) == -1)
+        {
+        lives -= 1;
+        }
     }
-}
 
 </string>
           </argument>

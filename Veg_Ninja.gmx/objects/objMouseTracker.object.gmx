@@ -60,49 +60,62 @@ lineEndY   = mouse_y;
 
 // If the game is paused, this stops the rest of the code being executed
 if (global.pause)
-{
-exit;
-}
+    {
+    exit;
+    }
 
 // If we just pressed the left mouse button
 if (mouse_check_button_pressed(mb_left))
-{
-lineEndX = mouse_x;
-lineEndY = mouse_y;
-}
+    {
+    lineEndX = mouse_x;
+    lineEndY = mouse_y;
+    }
 
 // If we're holding down the left mouse button
 if (mouse_check_button(mb_left))
-{
-// Create a line using the previous mouse position and the current one
-lineStartX = lineEndX;
-lineStartY = lineEndY;
-lineEndX   = mouse_x;
-lineEndY   = mouse_y;
-lineLength = point_distance(lineStartX, lineStartY, lineEndX, lineEndY);    // Get the length of the line
-
-    // If the line has some length (meaning it is moving)
-if (lineLength &gt; 10)
     {
-    // Find out if we hit a vegetable
-    var hitVeg = collision_line(lineStartX, lineStartY, lineEndX, lineEndY, objVeg, true, true);
-    if (hitVeg != noone)        // If we DID hit a vegetable then hitVeg will be something other than "noone"
+    // Create a line using the previous mouse position and the current one
+    lineStartX = lineEndX;
+    lineStartY = lineEndY;
+    lineEndX   = mouse_x;
+    lineEndY   = mouse_y;
+    lineLength = point_distance(lineStartX, lineStartY, lineEndX, lineEndY);    // Get the length of the line
+    
+    // If the line has some length (meaning it is moving)
+    if (lineLength &gt; 10)
         {
-        with (hitVeg)
+        // Find out if we hit a vegetable
+        var hitVeg = collision_line(lineStartX, lineStartY, lineEndX, lineEndY, objVeg, true, true);
+        if (hitVeg != noone)        // If we DID hit a vegetable then hitVeg will be something other than "noone"
             {
-            if (sprite_index == sprTNT)
+            with (hitVeg)
                 {
-                alarm[0] = 1;
-                }
-            else
-                {
-                instance_destroy();
-                score += 1;
+                // instance is a sprTNT
+                if (sprite_index == sprTNT)
+                    {
+                    alarm[0] = 1;
+                    }
+                // instance is not a sprTNT
+                else
+                    {
+                    // destory this instance so the split veg's can be created
+                    instance_destroy();
+                    
+                    // instance is in the badVeg list
+                    if (ds_list_find_index(global.badVeg, sprite_index) != -1)
+                        {
+                        lives -= 1;
+                        }
+                    // instance is not in the badVeg list
+                    else
+                        {
+                        score += 1;
+                        }
+                    }
                 }
             }
         }
     }
-}
 
 </string>
           </argument>
