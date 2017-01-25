@@ -14,23 +14,31 @@ switch (global.difficulty)
     // Gravity: how much gravity affects the veg
     // verticalPushMin: minimum amount the veg will be launched into view
     // verticalPushMax: maximum amount the veg will be launched into view
+    // horizontalPushMin: minimum amount the veg will be launched sideways
+    // horizontalPushMax: maximum amount the veg will be launched sideways
     
     case "Easy":    
         global.Gravity = 0.4
-        global.verticalPushMin = -20;
-        global.verticalPushMax = -25;
+        global.verticalPushMin = -22;
+        global.verticalPushMax = -28;
+        global.horizontalPushMin = -5;
+        global.horizontalPushMax = 5;
         break;
         
     case "Medium":
-        global.Gravity = 0.65
-        global.verticalPushMin = -28;
-        global.verticalPushMax = -37;
+        global.Gravity = 0.55
+        global.verticalPushMin = -27;
+        global.verticalPushMax = -33;
+        global.horizontalPushMin = -7;
+        global.horizontalPushMax = 7;
         break;
             
     case "Hard":
-        global.Gravity = 0.9
-        global.verticalPushMin = -33;
-        global.verticalPushMax = -41;
+        global.Gravity = 0.75
+        global.verticalPushMin = -31;
+        global.verticalPushMax = -38;
+        global.horizontalPushMin = -10;
+        global.horizontalPushMax = 10;
         break;
     }
 
