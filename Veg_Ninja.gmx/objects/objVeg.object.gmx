@@ -38,9 +38,9 @@ pauseGravity = 0;
 image_index       = 0;      // Use the first subimage
 image_speed       = 0;      // Don't animate
 gravity_direction = 270;    // Downward gravity
-gravity           = 0.2;    // Strength of gravity
+gravity           = global.Gravity; // Strength of gravity
 
-vspeed = random_range(-15, -18);                    // Give the veg a variable push upwards
+vspeed = random_range(global.verticalPushMin, global.verticalPushMax);  // Give the veg a variable push upwards
 hspeed = (room_width/2-x)/50+random_range(-5, 5);   // Give veg sideways movement based on its position
 
 </string>

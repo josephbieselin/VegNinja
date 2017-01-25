@@ -7,10 +7,37 @@ global.Lives = 3;
 // total number of sprites for vegetables
 global.numVeg = 7;
 
+switch (global.difficulty)
+    {
+    
+    // global variables for when a veg is created for slicing
+    // Gravity: how much gravity affects the veg
+    // verticalPushMin: minimum amount the veg will be launched into view
+    // verticalPushMax: maximum amount the veg will be launched into view
+    
+    case "Easy":    
+        global.Gravity = 0.4
+        global.verticalPushMin = -20;
+        global.verticalPushMax = -25;
+        break;
+        
+    case "Medium":
+        global.Gravity = 0.65
+        global.verticalPushMin = -28;
+        global.verticalPushMax = -37;
+        break;
+            
+    case "Hard":
+        global.Gravity = 0.9
+        global.verticalPushMin = -33;
+        global.verticalPushMax = -41;
+        break;
+    }
+
 global.spawnMin = 1;
 global.spawnMax = global.numVeg / 2 + 1;
 
-global.badCount = irandom_range(1, global.numVeg - 1);
+global.badCount = irandom_range(1, 3);
 global.goodCount = global.numVeg - global.badCount;
 
 
