@@ -16,13 +16,15 @@ switch (global.difficulty)
     // verticalPushMax: maximum amount the veg will be launched into view
     // horizontalPushMin: minimum amount the veg will be launched sideways
     // horizontalPushMax: maximum amount the veg will be launched sideways
+    // secondsToSpawn: # of seconds for more veg to spawn
     
     case "Easy":    
-        global.Gravity = 0.4
-        global.verticalPushMin = -22;
-        global.verticalPushMax = -28;
+        global.Gravity = 0.35
+        global.verticalPushMin = -20;
+        global.verticalPushMax = -25;
         global.horizontalPushMin = -5;
         global.horizontalPushMax = 5;
+        global.secondsToSpawn = 3;
         break;
         
     case "Medium":
@@ -31,6 +33,7 @@ switch (global.difficulty)
         global.verticalPushMax = -33;
         global.horizontalPushMin = -7;
         global.horizontalPushMax = 7;
+        global.secondsToSpawn = 3;
         break;
             
     case "Hard":
@@ -39,6 +42,7 @@ switch (global.difficulty)
         global.verticalPushMax = -38;
         global.horizontalPushMin = -10;
         global.horizontalPushMax = 10;
+        global.secondsToSpawn = 2;
         break;
     }
 

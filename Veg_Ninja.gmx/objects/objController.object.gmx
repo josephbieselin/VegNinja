@@ -98,7 +98,7 @@ repeat (spawnCount)
         veg.image_speed = 0.2;
         }
     }
-alarm[0] = room_speed * 3;
+alarm[0] = room_speed * global.secondsToSpawn;
 }
 
 </string>
