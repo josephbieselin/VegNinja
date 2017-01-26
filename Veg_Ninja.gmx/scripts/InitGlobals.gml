@@ -1,8 +1,11 @@
 // randomize the seed
 randomize();
 
-// this variable will be used at the start of new games to set the "lives" global
+// start of new games to set the global "lives"
 global.Lives = 3;
+
+// number of good veg that fell without being sliced
+global.fallenVeg = 0;
 
 // total number of sprites for vegetables
 global.numVeg = 7;

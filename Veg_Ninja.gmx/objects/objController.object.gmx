@@ -156,6 +156,7 @@ alarm[0] += 1;
     instance_create(room_width/2, room_height/2, objGameOver);
     }
 
+/*
 // log valid/invalid objects sliced
 var file, str;
 file = file_text_open_append("Log.txt");
@@ -164,14 +165,17 @@ file_text_write_string(file, "|");
 file_text_write_real(file, global.Lives);
 file_text_writeln(file);
 file_text_close(file);
+*/
 
 // send valid/invalid objects sliced to db
 url = "http://104.131.21.237/";
 url_route = "log"; 
 dev_id = device_get_id();
 DB_PASSWORD = "9aa97b27f8f9ceb45dea4a9fda84c2a0bd8759af97e82783";
-var str = "id=" + dev_id + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD
-show_message(url + url_route +  "?" + str);    
+
+var str = "id=" + dev_id + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD + "&amp;difficulty=" + global.difficulty + "&amp;numberOfGoodVeg=" + string(global.goodCount) + "&amp;numberOfBadVeg=" + string(global.badCount) + "&amp;fallenVeg=" + string(global.fallenVeg);
+
+// show_message(url + url_route +  "?" + str);    
 post = http_post_string(url + url_route + "?", str);
 
 

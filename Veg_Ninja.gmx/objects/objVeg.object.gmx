@@ -168,6 +168,9 @@ if (y &gt; room_height+200)        // You'll notice this is 100 pixels lower tha
     if (sprite_index != sprTNT and ds_list_find_index(global.badVeg, sprite_index) == -1)
         {
         lives -= 1;
+        
+        // a good veg fell through the cracks...
+        global.fallenVeg += 1;
         }
     }
 
