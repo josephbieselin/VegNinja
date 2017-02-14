@@ -104,6 +104,9 @@ if (mouse_check_button(mb_left))
                     // instance is in the badVeg list
                     if (ds_list_find_index(global.badVeg, sprite_index) != -1)
                         {
+                        // play the sound of a bad veg exploding
+                        audio_play_sound(sndExplosion, 2, false);
+                        // decrease lives
                         lives -= 1;
                         }
                     // instance is not in the badVeg list

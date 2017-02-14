@@ -27,6 +27,7 @@
   </NewExtensions>
   <sounds name="sound">
     <sound>sound\sndVegSplat</sound>
+    <sound>sound\sndExplosion</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Veg Ninja Game">
