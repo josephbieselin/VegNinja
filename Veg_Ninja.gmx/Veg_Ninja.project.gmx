@@ -25,7 +25,9 @@
   <NewExtensions>
     <extension index="0">extensions\GetDeviceDetails</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sndVegSplat</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Veg Ninja Game">
       <sprite>sprites\sprButtonPlay</sprite>

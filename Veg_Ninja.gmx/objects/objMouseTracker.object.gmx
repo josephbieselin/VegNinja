@@ -109,6 +109,9 @@ if (mouse_check_button(mb_left))
                     // instance is not in the badVeg list
                     else
                         {
+                        // play the sound of a veg being sliced and splat
+                        audio_play_sound(sndVegSplat, 1, false);
+                        // increase the score
                         score += 1;
                         }
                     }

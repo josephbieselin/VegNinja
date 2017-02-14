@@ -74,6 +74,7 @@ hspeed = (room_width/2-x)/50+random_range(global.horizontalPushMin, global.horiz
 // Split the veg into its smaller parts
 if (sprite_index != sprTNT)
 {
+    // 2 veg slices
     var inst;
     inst = instance_create(x, y, objVegSplit);
     inst.sprite_index = sprite_index;
@@ -90,6 +91,16 @@ if (sprite_index != sprTNT)
     inst.vspeed       = vspeed + lengthdir_x(2, image_angle-90);
     inst.hspeed       = hspeed + lengthdir_y(2, image_angle-90);
     inst.gravity      = gravity;
+
+    // splat image index
+    inst = instance_create(x, y, objVegSplit);
+    inst.sprite_index = sprite_index;
+    inst.image_index  = 3
+    inst.image_angle  = image_angle;
+    inst.vspeed       = 0;
+    inst.hspeed       = 0;
+    inst.gravity      = 0;
+    inst.depth        = 1000; // make object look further away
 }
 
 </string>
