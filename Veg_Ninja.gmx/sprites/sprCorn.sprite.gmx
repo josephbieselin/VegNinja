@@ -23,5 +23,6 @@
     <frame index="0">images\sprCorn_0.png</frame>
     <frame index="1">images\sprCorn_1.png</frame>
     <frame index="2">images\sprCorn_2.png</frame>
+    <frame index="3">images\sprCorn_3.png</frame>
   </frames>
 </sprite>
