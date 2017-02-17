@@ -32,6 +32,7 @@
   <sprites name="sprites">
     <sprites name="Veg Ninja Game">
       <sprite>sprites\sprButtonPlay</sprite>
+      <sprite>sprites\sprButtonResume</sprite>
       <sprite>sprites\sprButtonOk</sprite>
       <sprite>sprites\sprButtonEasy</sprite>
       <sprite>sprites\sprButtonMedium</sprite>
@@ -78,6 +79,7 @@
       <object>objects\objMenu</object>
       <object>objects\objMenuLogo</object>
       <object>objects\objButtonPlay</object>
+      <object>objects\objButtonResume</object>
       <object>objects\objGameOver</object>
       <object>objects\objButtonRetry</object>
       <object>objects\objButtonMainMenu</object>

@@ -221,7 +221,10 @@ if (global.pause)
     // Reset drawing values as we don't want them to apply to further drawing
     draw_set_alpha(1);
     draw_set_color(c_white);
-    draw_text(room_width/2, room_height/2, "PAUSED");
+    draw_text(room_width/2 - 38, room_height/2, "PAUSED");
+    
+    // 
+    draw_sprite_ext(sprButtonResume, 0, room_width / 2, room_height - 90, 1, 1, 0, c_white, 1);
 }
 
 </string>

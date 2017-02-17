@@ -1,3 +1,7 @@
+if (lives <= 0)
+{
+    exit;
+}
 
 // Toggle pause state
 global.pause = !global.pause;
@@ -5,6 +9,10 @@ global.pause = !global.pause;
 // Pause the game
 if (global.pause)
 {
+    // create an instance of the Resume Button
+    instance_create(room_width / 2, room_height - 90, objButtonResume);
+    
+    // pause all game objects
     with (objVeg)
     {
         pauseHspeed  = hspeed;
@@ -29,18 +37,15 @@ if (global.pause)
 // Resume the game
 else
 {
+    // destroy all other game objects to leave a blank room
     with (objVeg)
     {
-        hspeed  = pauseHspeed;
-        vspeed  = pauseVspeed;
-        gravity = pauseGravity;
+        instance_destroy();
     }
     
     with (objVegSplit)
     {
-        hspeed  = pauseHspeed;
-        vspeed  = pauseVspeed;
-        gravity = pauseGravity;
+        instance_destroy();
     }
 }
 

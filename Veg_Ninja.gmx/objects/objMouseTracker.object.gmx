@@ -59,7 +59,7 @@ lineEndY   = mouse_y;
 //*****************************************************************************
 
 // If the game is paused, this stops the rest of the code being executed
-if (global.pause)
+if (global.pause or lives &lt;= 0)
     {
     exit;
     }
@@ -108,6 +108,8 @@ if (mouse_check_button(mb_left))
                         audio_play_sound(sndExplosion, 2, false);
                         // decrease lives
                         lives -= 1;
+                        // pause game to show bad veg sliced
+                        PauseGame();
                         }
                     // instance is not in the badVeg list
                     else
