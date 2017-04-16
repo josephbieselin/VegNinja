@@ -46,6 +46,23 @@ alarm[0] = room_speed * 2;     // 2 seconds
 
 instance_create(0, 0, objMouseTracker);
 
+// networking variables
+url = "104.131.21.237";
+port = 80;
+
+// open a network socket connection to the server
+var socket = network_create_socket(network_socket_tcp);
+var server = network_connect(socket, url, port);
+if server &lt; 0
+    {
+    // No connection!
+    draw_text(room_width/2, room_height/2, "No network connection... game ending");
+    network_destroy(socket);
+    var i;
+    // wait
+    for(i = 0; i &lt; 1000000; i+=1){;}
+    ///////game_end();
+    }
 </string>
           </argument>
         </arguments>
@@ -169,14 +186,62 @@ file_text_close(file);
 
 // send valid/invalid objects sliced to db
 url = "http://104.131.21.237/";
+port = 80;
 url_route = "log"; 
 dev_id = device_get_id();
 DB_PASSWORD = "9aa97b27f8f9ceb45dea4a9fda84c2a0bd8759af97e82783";
 
-var str = "id=" + dev_id + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD + "&amp;difficulty=" + global.difficulty + "&amp;numberOfGoodVeg=" + string(global.goodCount) + "&amp;numberOfBadVeg=" + string(global.badCount) + "&amp;fallenVeg=" + string(global.fallenVeg);
+// What is logged?
+// id (deprecated): useful with Android/iOS devices to grab a unique hardware identifier
+// sliced: how many good veg were sliced before losing all lives
+// lives: how many lives were available
+// password: to connect to db
+// difficulty: what difficulty was selected at start of the game
+// numberOfGoodVeg: how many different good veg could render randomly during the game
+// numberOfBadVeg: how many different bad veg (slicing one subtracts a life) could render randomly during the game
+// fallenVeg: how many good veg were not sliced (missing one subtracts a life)
+var str = "id=" + string(dev_id) + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD + "&amp;difficulty=" + global.difficulty + "&amp;numberOfGoodVeg=" + string(global.goodCount) + "&amp;numberOfBadVeg=" + string(global.badCount) + "&amp;fallenVeg=" + string(global.fallenVeg);
 
-// show_message(url + url_route +  "?" + str);    
 post = http_post_string(url + url_route + "?", str);
+
+
+
+//////////
+//// networking variables
+//url = "104.131.21.237";
+//port = 80;
+
+//// open a network socket connection to the server
+//var socket = network_create_socket(network_socket_tcp);
+//var server = network_connect(socket, url, port);
+//if server &lt; 0
+//    {
+    // TODO - write failsafe code
+    // No connection!
+//    }
+//else
+//    {
+    // TODO - write http send code
+    // Connected!
+//    }
+
+////// buffer /////
+//var buffer = buffer_create(4096, buffer_grow, 1);
+//buffer_seek(buffer, buffer_seek_start, 0);
+//// initialize data to write to buffer
+//dev_id = device_get_id();
+//DB_PASSWORD = "9aa97b27f8f9ceb45dea4a9fda84c2a0bd8759af97e82783";
+//var data = "id=" + string(dev_id) + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD + "&amp;difficulty=" + global.difficulty + "&amp;numberOfGoodVeg=" + string(global.goodCount) + "&amp;numberOfBadVeg=" + string(global.badCount) + "&amp;fallenVeg=" + string(global.fallenVeg);
+//// write data to buffer
+///// TODO - add log? + data as data to send ??????
+//buffer_write(buffer, buffer_string, data);
+//// send data over the socket created, inside of buffer, for all data written up to buffer_tell's position
+//network_send_packet(socket, buffer, buffer_tell(buffer));
+
+
+///////////////////////////
+//// clean up buffer
+//buffer_delete(buffer);
 
 
 </string>
