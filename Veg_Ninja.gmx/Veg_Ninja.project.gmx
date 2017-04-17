@@ -39,6 +39,7 @@
       <sprite>sprites\sprButtonHard</sprite>
       <sprite>sprites\sprRetry</sprite>
       <sprite>sprites\sprMainMenu</sprite>
+      <sprite>sprites\sprContinue</sprite>
       <sprite>sprites\sprVegNinjaLogo</sprite>
       <sprite>sprites\sprVegNinjaGameOver</sprite>
       <sprite>sprites\sprBrocolli</sprite>
@@ -83,6 +84,7 @@
       <object>objects\objButtonResume</object>
       <object>objects\objGameOver</object>
       <object>objects\objButtonRetry</object>
+      <object>objects\objButtonContinue</object>
       <object>objects\objButtonMainMenu</object>
       <object>objects\objButtonEasy</object>
       <object>objects\objButtonMedium</object>
