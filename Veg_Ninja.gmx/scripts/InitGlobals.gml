@@ -10,6 +10,12 @@ global.Lives = 3;
 // number of good veg that fell without being sliced
 global.fallenVeg = 0;
 
+// number of total veg spawned
+global.vegSpawned = 0;
+
+// number of bad veg spawned
+global.badVegSpawned = 0;
+
 // total number of sprites for vegetables
 global.numVeg = 7;
 

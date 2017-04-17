@@ -76,7 +76,11 @@ instance_create(0, 0, objMouseTracker);
 if (!instance_exists(objGameOver))
 {
 var spawnCount, spawnMin, spawnMax, xpos, ypos, veg;
-spawnCount = irandom_range(global.spawnMin, global.spawnMax);       // We want to spawn 1-3 veg
+spawnCount = irandom_range(global.spawnMin, global.spawnMax);
+
+// increase the global variable for veg spawned
+global.vegSpawned += spawnCount;
+
 repeat (spawnCount)
     {
     xpos = random_range(100, room_width-100);   // A random x position
@@ -95,6 +99,11 @@ repeat (spawnCount)
     if (veg.sprite_index == sprTNT)     // If the random sprite was the TNT, then animate it
         {
         veg.image_speed = 0.2;
+        }
+    // increase global variable for bad veg spawned if bad veg found
+    if (isGoodVeg(veg.sprite_index) != 1)
+        {
+        global.badVegSpawned += 1;
         }
     }
 alarm[0] = room_speed * global.secondsToSpawn;
@@ -175,6 +184,7 @@ DB_PASSWORD = "9aa97b27f8f9ceb45dea4a9fda84c2a0bd8759af97e82783";
 
 // What is logged?
 // id (deprecated): useful with Android/iOS devices to grab a unique hardware identifier
+// username: unique id for the current user in database
 // sliced: how many good veg were sliced before losing all lives
 // lives: how many lives were available
 // password: to connect to db
@@ -182,7 +192,9 @@ DB_PASSWORD = "9aa97b27f8f9ceb45dea4a9fda84c2a0bd8759af97e82783";
 // numberOfGoodVeg: how many different good veg could render randomly during the game
 // numberOfBadVeg: how many different bad veg (slicing one subtracts a life) could render randomly during the game
 // fallenVeg: how many good veg were not sliced (missing one subtracts a life)
-var str = "id=" + string(dev_id) + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD + "&amp;difficulty=" + global.difficulty + "&amp;numberOfGoodVeg=" + string(global.goodCount) + "&amp;numberOfBadVeg=" + string(global.badCount) + "&amp;fallenVeg=" + string(global.fallenVeg);
+// vegSpawned: how many total veg were spawned in the game
+// badVegSpawned: how many total bad veg were spawned in the game
+var str = "id=" + string(dev_id) + "&amp;username=" + global.username + "&amp;sliced=" + string(score) + "&amp;lives=" + string(global.Lives) + "&amp;password=" + DB_PASSWORD + "&amp;difficulty=" + global.difficulty + "&amp;numberOfGoodVeg=" + string(global.goodCount) + "&amp;numberOfBadVeg=" + string(global.badCount) + "&amp;fallenVeg=" + string(global.fallenVeg) + "&amp;vegSpawned=" + string(global.vegSpawned) + "&amp;badVegSpawned=" + string(global.badVegSpawned);
 
 post = http_post_string(url + url_route + "?", str);
 
