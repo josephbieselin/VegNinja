@@ -2,7 +2,7 @@
 randomize();
 
 // get the username from the url
-global.username = parameter_string(1);
+global.username = getURLParameterValue(parameter_string(1));
 
 // start of new games to set the global "lives"
 global.Lives = 3;
