@@ -45,24 +45,6 @@ lives = global.Lives;
 alarm[0] = room_speed * 2;     // 2 seconds
 
 instance_create(0, 0, objMouseTracker);
-
-// networking variables
-url = "104.131.21.237";
-port = 80;
-
-// open a network socket connection to the server
-var socket = network_create_socket(network_socket_tcp);
-var server = network_connect(socket, url, port);
-if server &lt; 0
-    {
-    // No connection!
-    draw_text(room_width/2, room_height/2, "No network connection... game ending");
-    network_destroy(socket);
-    var i;
-    // wait
-    for(i = 0; i &lt; 1000000; i+=1){;}
-    ///////game_end();
-    }
 </string>
           </argument>
         </arguments>
