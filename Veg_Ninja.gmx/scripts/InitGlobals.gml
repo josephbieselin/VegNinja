@@ -19,6 +19,9 @@ global.badVegSpawned = 0;
 // total number of sprites for vegetables
 global.numVeg = 7;
 
+global.difficulty = "Easy";
+
+// (deprecated) removed multiple difficulties
 switch (global.difficulty)
     {
     
