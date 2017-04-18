@@ -35,6 +35,7 @@
       <sprite>sprites\sprButtonResume</sprite>
       <sprite>sprites\sprButtonOk</sprite>
       <sprite>sprites\sprButtonEasy</sprite>
+      <sprite>sprites\sprInstructions</sprite>
       <sprite>sprites\sprButtonMedium</sprite>
       <sprite>sprites\sprButtonHard</sprite>
       <sprite>sprites\sprRetry</sprite>
@@ -90,6 +91,7 @@
       <object>objects\objButtonEasy</object>
       <object>objects\objButtonMedium</object>
       <object>objects\objButtonHard</object>
+      <object>objects\objInstructions</object>
     </objects>
     <objects name="In Game">
       <object>objects\objController</object>
